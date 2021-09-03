@@ -27,11 +27,14 @@ const api_key = `666a17dcbbdb7ff7fa79325d26ab2962`;
 
 const btnClick = () =>{
     const location = document.getElementById('location').value;
-    const apiLink = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}`
-    console.log(apiLink);
+    location.value = ' ';
+    const apiLink = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}&units=metric `
+    // console.log(apiLink);
     fetch(apiLink)
     .then(res => res.json())
     .then( data => displayTemperature(data))
+
+   
 }
 
 const setInnerText = (id, text) => {
@@ -40,6 +43,12 @@ const setInnerText = (id, text) => {
 
 
 const displayTemperature = temp => {
-   setInnerText  ('city', temp.name )
-   console.log(temp);
+   setInnerText  ('city', temp.name );
+   setInnerText  ('temperature', temp.main.temp );
+   setInnerText  ('condition', temp.weather[0].main );
+//    console.log(temp);
+   //set icon 
+   const iconUrl = `http://openweathermap.org/img/wn/${temp.weather[0].icon }@2x.png`;
+   const iconImg = document.getElementById('icon');
+   iconImg.setAttribute ('src', iconUrl)  
 }
