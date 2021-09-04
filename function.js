@@ -16,12 +16,42 @@
 
 
 
-function showMessage3(message){
-    console.log(message);
-}
+//  set time out 
 
- showMessage3('message line will output <br> another line add here ');
+// let name = ''
+
+// function showMessage2(){
+//    alert("added here set time here", 5000);
+// }
+
+// setTimeout(showMessage2());
+
+// function alertMessage(user, name ){
+//     alert(user + " , " + name)
+// }
+// const userItem = setTimeout (alertMessage, 5000 ,  'sakib', 'crickter')
+// clearTimeout(userItem)
+
+
+
+// console.log('1st');
+// console.log('2nd');
+// setInterval(() => {
+//     console.log('something will output here ');
+// } ,3000);
+// console.log('3rd');
 
 
 
 
+
+let seconds  = 0;
+ const timeId = setInterval(() => {
+    let item = seconds ++ ;
+
+    if(seconds>5){
+        clearInterval(timeId)
+    }
+}, 3000);
+
+console.log(seconds);
